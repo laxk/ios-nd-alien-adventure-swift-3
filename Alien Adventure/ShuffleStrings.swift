@@ -30,7 +30,7 @@ extension Hero {
                     s2s = s2s + String(char)
                 }
             }
-            if (s1s == s1 && s2s == s2){
+            if (s1s.contains(s1) && s2s.contains(s2)){
                 return true
             } else {
                 return false
