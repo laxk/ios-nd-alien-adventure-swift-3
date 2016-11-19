@@ -18,24 +18,25 @@ extension Hero {
         var key: UInt8
         key = 0
         
-        for x in UInt8.min..<UInt8.max {
+        for x in UInt8.min...UInt8.max {
             
-            print(x)
+            //print(x)
             
             var decrypted: [UInt8]
             decrypted = [UInt8]()
             
             for character in encryptedString {
-                // ADD CODE: perform decryption
-                print(character)
+                decrypted.append(x ^ character)
+                //print(character)
             }
+            
+            //print(decrypted)
             
             if let decryptedString = String(bytes: decrypted,
                 encoding: String.Encoding.utf8), decryptedString == "udacity" {
-                    // ADD CODE: found match, now what?
+                key = x
             }
         }
-        
         return key
     }
 }
