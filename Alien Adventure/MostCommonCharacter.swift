@@ -9,6 +9,30 @@
 extension Hero {
     
     func mostCommonCharacter(inventory: [UDItem]) -> Character? {
-        return nil
+        var lowerCaseName: String
+        var commonCharacter: Character?
+        var charactersArray: [Character] = []
+        var charactersCount: [Character:Int] = [:]
+        var totalCount = 0
+        
+        for item in inventory{
+            lowerCaseName = item.name.lowercased()
+            for char in lowerCaseName.characters{
+                charactersArray.insert(char, at: 0)
+            }
+        }
+        
+        for char in charactersArray{
+            charactersCount[char] = (charactersCount[char] ?? 0) + 1
+        }
+        
+        for (key,value) in charactersCount{
+            if value > totalCount{
+                totalCount = value
+                commonCharacter = key
+            }
+        }
+        
+        return commonCharacter
     }
 }
